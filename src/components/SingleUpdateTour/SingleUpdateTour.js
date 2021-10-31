@@ -21,7 +21,7 @@ const SingleUpdateTour = ({ tour, handleDelete }) => {
   } = tour || {};
 
   return (
-    <div className="col-md-4 h-100 " data-aos="fade-left">
+    <div className="col-md-4 h-100 " data-aos="fade-up">
       <div>
         <div className="img-div">
           {" "}
@@ -75,7 +75,10 @@ const SingleUpdateTour = ({ tour, handleDelete }) => {
               DELETE
             </Button>
 
-            <Link to={`/updateDetails/${_id}`} style={{ textDecoration: "none" }}>
+            <Link
+              to={`/updateDetails/${_id}`}
+              style={{ textDecoration: "none" }}
+            >
               <Button endIcon={<UpdateIcon />} variant="contained" color="info">
                 UPDATE
               </Button>

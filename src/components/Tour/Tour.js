@@ -21,11 +21,11 @@ const Tour = ({ tour }) => {
     description,
   } = tour || {};
   return (
-    <div className="col-md-4 h-100 " data-aos="fade-left">
+    <div className="col-12 col-md-4 h-100 " data-aos="fade-up">
       <div>
-        <div className="img-div">
+        <div className="img-div w-100">
           {" "}
-          <img className="card-img-top tour-img" src={img} alt="tour" />
+          <img className="card-img-top tour-img " src={img} alt="tour" />
         </div>
 
         <div className="tourcard-body ">

@@ -36,7 +36,7 @@ const Header = () => {
         fixed="top"
         className={
           scrollNavbar
-            ? "shadow-sm py-1  navbar-scrolled"
+            ? "shadow-sm py-2  navbar-scrolled"
             : "shadow-none py-3 no-scroll"
         }
       >
@@ -148,7 +148,7 @@ const Header = () => {
               {user.email ? (
                 <>
                   <Navbar.Text className="ms-md-5">
-                    <span className="me-3">{user?.displayName}</span>
+                    <span className="me-2 fw-bold">{user?.displayName}</span>
                   </Navbar.Text>
                   <Button
                     variant="text"

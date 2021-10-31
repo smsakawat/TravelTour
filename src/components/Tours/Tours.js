@@ -1,8 +1,8 @@
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Spinner from "react-bootstrap/Spinner";
-import Tour from "../Tour/Tour";
+import { Spinner } from "react-bootstrap";
+import Tour from "../../components/Tour/Tour";
 import "./Tours.css";
 
 const Tours = () => {
@@ -17,7 +17,7 @@ const Tours = () => {
     });
   }, []);
   return (
-    <div className="container-fluid tours-container py-5">
+    <div className=" tours-container py-5">
       <div className=" container">
         <div className="tours-title text-center my-5">
           <h3 className="fw-bolder">
@@ -34,7 +34,7 @@ const Tours = () => {
           {showSpinner ? (
             <Spinner animation="border" variant="secondary" className="my-5" />
           ) : (
-            <div className="row g-5">
+            <div className="row g-4">
               {tours.map((tour) => (
                 <Tour key={tour._id} tour={tour}></Tour>
               ))}
