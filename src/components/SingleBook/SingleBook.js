@@ -9,10 +9,13 @@ import {
   RadioGroup,
   Typography,
 } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Rating from "react-rating";
 
+AOS.init();
 const SingleBook = ({ handleDelete, singleBook }) => {
   const {
     title,
@@ -42,7 +45,7 @@ const SingleBook = ({ handleDelete, singleBook }) => {
   }, [bookingStatus]);
 
   return (
-    <div className="row g-0 my-4">
+    <div className="row g-0 my-4" data-aos="fade-left">
       <div className="col-12 col-md-3 d-flex flex-column flex-md-row justify-content-center align-items-centeter">
         <img src={img} className="img-fluid " alt="singleBook-img" />
       </div>

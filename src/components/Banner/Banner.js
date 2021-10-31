@@ -2,15 +2,22 @@ import MoneyIcon from "@mui/icons-material/Money";
 import PublicIcon from "@mui/icons-material/Public";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import { Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Banner.css";
+
+AOS.init();
 
 const Banner = () => {
   return (
     <div className="banner">
       <div className="banner-container">
-        <div className="banner-text text-center text-light">
+        <div
+          className="banner-text text-center text-light"
+          data-aos="fade-down"
+        >
           <h1 style={{ fontSize: "4rem", fontWeight: "700" }}>
             Find Next Place To Visit
           </h1>

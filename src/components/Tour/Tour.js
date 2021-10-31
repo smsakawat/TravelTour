@@ -1,9 +1,11 @@
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { Button, Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Rating from "react-rating";
 import { Link, useHistory } from "react-router-dom";
 import "./Tour.css";
-
+AOS.init();
 const Tour = ({ tour }) => {
   const history = useHistory();
 
@@ -19,7 +21,7 @@ const Tour = ({ tour }) => {
     description,
   } = tour || {};
   return (
-    <div className="col-md-4 h-100">
+    <div className="col-md-4 h-100 " data-aos="fade-left">
       <div>
         <div className="img-div">
           {" "}

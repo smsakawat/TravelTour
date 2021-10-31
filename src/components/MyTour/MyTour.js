@@ -1,15 +1,18 @@
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import DateRangeIcon from "@mui/icons-material/DateRange";
 import { Button, Typography } from "@mui/material";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Rating from "react-rating";
 
+AOS.init();
 const MyTour = ({ myTour, handleDelete }) => {
   console.log(myTour.tourDetails);
   const { title, img, rating, price, description, duration, date, reviews } =
     myTour.tourDetails || {};
 
   return (
-    <div className="row g-0   my-4">
+    <div className="row g-0 my-4" data-aos="fade-left">
       <div className="col-12 col-md-3 d-flex justify-content-center align-items-center">
         <img
           src={img}

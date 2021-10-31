@@ -71,7 +71,7 @@ const SignUp = () => {
   return (
     <div
       className="text-center mt-5 py-5"
-      style={{ backgroundColor: "#f5f5f5" }}
+      style={{ backgroundColor: "#e0e0e0" }}
     >
       <h2 className="my-4 fw-bold">Sign Up</h2>
       <p className=" mt-2 primary-color lead fw-bold">

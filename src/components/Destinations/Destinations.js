@@ -1,9 +1,11 @@
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
 import "./Destinations.css";
-
+AOS.init();
 const Destinations = () => {
   const [destinations, setDestinations] = useState([]);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -36,7 +38,7 @@ const Destinations = () => {
         ) : (
           <div className="row g-5">
             {destinations.map((destination, index) => (
-              <div key={index} className=" col-md-4">
+              <div key={index} data-aos="flip-left" className=" col-md-4">
                 {" "}
                 <div
                   className="card-div"

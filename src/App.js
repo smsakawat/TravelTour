@@ -1,3 +1,4 @@
+import "aos/dist/aos.css"; // You can also use <link> for styles
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";

@@ -34,7 +34,7 @@ const Tours = () => {
           {showSpinner ? (
             <Spinner animation="border" variant="secondary" className="my-5" />
           ) : (
-            <div className="row g-5 ">
+            <div className="row g-5">
               {tours.map((tour) => (
                 <Tour key={tour._id} tour={tour}></Tour>
               ))}
