@@ -42,13 +42,15 @@ const UpdateTourDetails = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    axios.put(`http://localhost:5000/update/tour/${id}`, data).then((res) => {
-      if (res.data) {
-        console.log(res.data);
-        notify();
-        reset();
-      }
-    });
+    axios
+      .put(`https://calm-reef-90911.herokuapp.com/update/tour/${id}`, data)
+      .then((res) => {
+        if (res.data) {
+          console.log(res.data);
+          notify();
+          reset();
+        }
+      });
   };
 
   // initialize toastify

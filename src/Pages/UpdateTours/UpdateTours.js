@@ -37,18 +37,20 @@ const UpdateTours = () => {
   const handleDelete = (id) => {
     const result = window.confirm("Are You Sure To Delete This Tour?");
     if (result) {
-      axios.delete(`http://localhost:5000/deletetour/${id}`).then((res) => {
-        if (res.data.deletedCount) {
-          const reminingTours = tours.filter((tour) => tour._id !== id);
-          setTours(reminingTours);
-          notify();
-          if (reminingTours.length) {
-            setNoTours(false);
-          } else {
-            setNoTours(true);
+      axios
+        .delete(`https://calm-reef-90911.herokuapp.com/deletetour/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount) {
+            const reminingTours = tours.filter((tour) => tour._id !== id);
+            setTours(reminingTours);
+            notify();
+            if (reminingTours.length) {
+              setNoTours(false);
+            } else {
+              setNoTours(true);
+            }
           }
-        }
-      });
+        });
     }
   };
   return (
