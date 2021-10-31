@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./App.css";
+import Login from "./components/Login/Login";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Footer from "./components/Shared/Footer/Footer";
+import Header from "./components/Shared/Header/Header";
+import SignUp from "./components/Signup/Signup";
+import AuthProvider from "./Context/AuthProvider";
+import AddTour from "./Pages/AddTour/AddTour";
+import Booking from "./Pages/Booking/Booking";
+import Home from "./Pages/Home/Home";
+import ManageAllBookings from "./Pages/ManageAllBookings/ManageAllBookings";
+import MyTour from "./Pages/MyTours/MyTours";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <PrivateRoute path="/booking/:id">
+              <Booking />
+            </PrivateRoute>
+            <PrivateRoute exact path="/mytours">
+              <MyTour />
+            </PrivateRoute>
+            <PrivateRoute path="/allBooking">
+              <ManageAllBookings />
+            </PrivateRoute>
+            <PrivateRoute exact path="/addtour">
+              <AddTour />
+            </PrivateRoute>
+            <Route exact path="/signup">
+              <SignUp />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

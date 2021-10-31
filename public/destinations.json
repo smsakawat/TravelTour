@@ -1,0 +1,38 @@
+[
+  {
+    "id": "101",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2017/01/rio-de-janeiro-olympics-2016-niteroi-brazil-161212-400x285.jpeg",
+    "title": "Western Europe",
+    "description": "Head to Western Europe with a Eurail Pass and be amazed by how much you can see by train on a single vacation. This travel itinerary takes you to famous cities. "
+  },
+  {
+    "id": "102",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2017/01/pexels-photo-176400-400x285.jpeg",
+    "title": "Asia",
+    "description": "Although cases in the UK and areas of the US are currently high, many of us have now had our COVID vaccinations and can travel to a variety of countries."
+  },
+  {
+    "id": "103",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2017/01/city-landmark-lights-night-400x285.jpg",
+    "title": "America",
+    "description": "The United States of America is one of the biggest countries in the world in terms of both population and area and has a significant influence on so-called western culture."
+  },
+  {
+    "id": "104",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2017/01/pexels-photo-164276-400x285.jpeg",
+    "title": "Africa Wild",
+    "description": "Cape Town is an unparalleled destination for those who love outdoor adventure. The City of Cape Town manages 16 nature reserves, and the surrounding terrain includes mountains, beaches, and forests that contain rich and diverse ecosystems. "
+  },
+  {
+    "id": "105",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2016/06/shutterstock_136984760-400x285.jpg",
+    "title": "Scandinavia",
+    "description": "Scandinavia is a subregion in Northern Europe, with strong historical, cultural, and linguistic ties. In English usage, Scandinavia can refer to Denmark, Norway, and Sweden, sometimes more. "
+  },
+  {
+    "id": "106",
+    "img": "https://a6e8z9v6.stackpathcdn.com/traveltour/main4/wp-content/uploads/2017/01/pexels-photo-400x285.jpeg",
+    "title": "Africa Adventure",
+    "description": "If there's one thing for certain, it's this: Africa will change you. There's nothing quite like a walking safari where you are surrounded by wild animals, in their environment.  "
+  }
+]

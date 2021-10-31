@@ -1,0 +1,8 @@
+.tour-banner {
+  width: 100%;
+  height: 450px;
+  filter: brightness(60%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

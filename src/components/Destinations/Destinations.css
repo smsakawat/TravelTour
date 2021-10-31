@@ -1,0 +1,71 @@
+.card-div {
+  filter: brightness(95%);
+  color: #fff;
+  padding: 1rem 0 0;
+  max-width: 45ch;
+  border-radius: 0.3em;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+.card-div:hover,
+.card-div:focus-within {
+  transform: scale(1.04);
+}
+.card-content {
+  --padding: 1.5rem;
+  padding: var(--padding);
+  background: linear-gradient(
+    rgba(0, 0, 0, 0),
+    /* so here it starts the fading and then after 20%  */ rgba(0, 0, 0, 0.4)
+      20%,
+    rgba(0, 0, 0, 1)
+  );
+  transform: translateY(66%);
+  transition: transform 0.3s ease;
+}
+
+.card-div:hover .card-content,
+.card-div:focus-within .card-content {
+  transform: translateY(0);
+  transition-delay: 0.3s;
+}
+.card-div:focus-within .card-content {
+  transition-duration: 0ms;
+}
+/* selecting card contents elements without the card-title */
+/* akhen '*'  aita dia card elements er sob elements select korteci but :not dia card-title k baad rakhteci and universal selector ar not er majkhane gap takhte parbe na*/
+.card-content > *:not(.card-heading) {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+/* we used focus-within whenever we hover to fix the tab bug and yeah it's fixed */
+/* showing elements on hover */
+.card-div:hover .card-content > *:not(.card-heading),
+.card-div:focus-within .card-content > *:not(.card-heading) {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+.card-desc {
+  color: rgba(255, 255, 255, 0.938);
+}
+.card-btn {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  background-color: var(--main-clr);
+  padding: 0.5em 1.25em;
+  border-radius: 0.25em;
+  outline: none;
+  border: none;
+}
+.card-btn:hover,
+.card-btn:focus {
+  color: #fff;
+}
+.destination-link {
+  text-decoration: none;
+}
+.destination-link:hover {
+  color: rgb(155, 255, 213);
+}

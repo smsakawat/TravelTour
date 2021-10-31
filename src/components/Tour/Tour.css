@@ -1,0 +1,16 @@
+.tourcard-body {
+  box-shadow: 0 12px 14px -10px rgba(0, 0, 0, 0.25);
+  padding: 2em;
+}
+
+.img-div {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.tour-img {
+  transition: transform 0.5s linear;
+}
+.tour-img:hover {
+  transform: scale(1.18);
+}

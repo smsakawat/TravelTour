@@ -1,0 +1,11 @@
+.nav-item {
+  font-weight: 5rem;
+}
+.navbar-scrolled {
+  height: 70px;
+  opacity: 0.9;
+  border-bottom: 2px solid lightgray;
+}
+.no-scroll {
+  height: 85px;
+}

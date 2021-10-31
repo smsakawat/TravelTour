@@ -1,0 +1,9 @@
+.footer-link {
+  text-decoration: none;
+  color: lightgray;
+  display: block;
+  cursor: pointer;
+}
+.footer-link:hover {
+  color: var(--main-clr);
+}

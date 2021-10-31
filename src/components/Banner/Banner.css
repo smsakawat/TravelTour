@@ -1,0 +1,48 @@
+.banner-container {
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://image.freepik.com/free-photo/water-famous-architecture-finance-shanghai-tower_1417-1120.jpg");
+  background-position: center top;
+  height: 690px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-btn {
+  display: inline-block;
+  background-color: var(--main-clr);
+  border-radius: 4px;
+  padding: 18px 24px;
+  margin: 10px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.banner-btn:hover {
+  background-color: #fff;
+}
+.banner-link {
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #fff;
+}
+.banner-btn:hover .banner-link {
+  color: black;
+}
+.banner {
+  position: relative;
+  margin-bottom: 60px;
+}
+.banner-end {
+  margin: 0 100px;
+  padding: 30px 25px;
+  bottom: -150px;
+  position: absolute;
+  border-radius: 5px;
+  background-color: var(--main-clr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
