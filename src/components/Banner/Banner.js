@@ -33,7 +33,7 @@ const Banner = () => {
           </p>
           <div className="banner-btn">
             <Link className="banner-link" to="signup">
-              BOOK NOW
+              GET STARTED
             </Link>
           </div>
           <div className="banner-button"></div>

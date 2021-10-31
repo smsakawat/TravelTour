@@ -35,7 +35,9 @@ const Header = () => {
         variant="light"
         fixed="top"
         className={
-          scrollNavbar ? "shadow-sm navbar-scrolled" : "shadow-none no-scroll"
+          scrollNavbar
+            ? "shadow-sm py-1  navbar-scrolled"
+            : "shadow-none py-3 no-scroll"
         }
       >
         <Container>
@@ -58,7 +60,7 @@ const Header = () => {
                 style={{
                   fontWeight: "700",
                   fontSize: "15px",
-                  paddingRight: 20,
+                  paddingRight: 15,
                 }}
               >
                 HOME
@@ -69,7 +71,7 @@ const Header = () => {
                 style={{
                   fontWeight: "700",
                   fontSize: "15px",
-                  paddingRight: 20,
+                  paddingRight: 15,
                   // marginRight: !user?.email ? "250px" : "",
                 }}
               >
@@ -83,7 +85,7 @@ const Header = () => {
                     style={{
                       fontWeight: "700",
                       fontSize: "15px",
-                      paddingRight: 20,
+                      paddingRight: 15,
                     }}
                   >
                     MY TOURS
@@ -94,7 +96,7 @@ const Header = () => {
                     style={{
                       fontWeight: "700",
                       fontSize: "15px",
-                      paddingRight: 20,
+                      paddingRight: 15,
                     }}
                   >
                     MANAGE BOOKINGS
@@ -106,10 +108,22 @@ const Header = () => {
                     style={{
                       fontWeight: "700",
                       fontSize: "15px",
-                      paddingRight: 20,
+                      paddingRight: 15,
                     }}
                   >
                     ADD TOUR
+                  </Nav.Link>
+                  <Nav.Link
+                    className="me-md-3"
+                    as={Link}
+                    to="/updatetours"
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "15px",
+                      paddingRight: 15,
+                    }}
+                  >
+                    UPDATE
                   </Nav.Link>
                 </>
               )}

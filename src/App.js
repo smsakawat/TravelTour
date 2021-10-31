@@ -13,6 +13,8 @@ import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home";
 import ManageAllBookings from "./Pages/ManageAllBookings/ManageAllBookings";
 import MyTour from "./Pages/MyTours/MyTours";
+import UpdateTourDetails from "./Pages/UpdateTourDetails/UpdateTourDetails";
+import UpdateTours from "./Pages/UpdateTours/UpdateTours";
 
 function App() {
   return (
@@ -38,6 +40,12 @@ function App() {
             </PrivateRoute>
             <PrivateRoute exact path="/addtour">
               <AddTour />
+            </PrivateRoute>
+            <PrivateRoute path="/updatetours">
+              <UpdateTours></UpdateTours>
+            </PrivateRoute>
+            <PrivateRoute path='/updateDetails/:id'>
+              <UpdateTourDetails/>
             </PrivateRoute>
             <Route exact path="/signup">
               <SignUp />

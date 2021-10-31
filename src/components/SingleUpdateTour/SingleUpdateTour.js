@@ -1,12 +1,12 @@
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { Button, Typography } from "@mui/material";
-import AOS from "aos";
+import DeleteIcon from "@mui/icons-material/Delete";
+import UpdateIcon from "@mui/icons-material/Update";
+import { Button } from "@mui/material";
 import "aos/dist/aos.css";
 import Rating from "react-rating";
 import { Link, useHistory } from "react-router-dom";
-import "./Tour.css";
-AOS.init();
-const Tour = ({ tour }) => {
+
+const SingleUpdateTour = ({ tour, handleDelete }) => {
   const history = useHistory();
 
   const {
@@ -15,11 +15,11 @@ const Tour = ({ tour }) => {
     duration,
     price,
     rating,
-    popularity,
+
     reviews,
     _id,
-    description,
   } = tour || {};
+
   return (
     <div className="col-md-4 h-100 " data-aos="fade-left">
       <div>
@@ -31,11 +31,6 @@ const Tour = ({ tour }) => {
         <div className="tourcard-body ">
           <div className="title">
             <h5 className="fw-bolder my-2">{title}</h5>
-          </div>
-          <div className="my-3">
-            <Typography variant="body2" color="text.secondary">
-              {description.slice(0, 70)}...
-            </Typography>
           </div>
           <div className="mt-4 mb-2 d-flex justify-content-between align-items-center">
             <div>
@@ -70,17 +65,19 @@ const Tour = ({ tour }) => {
               </span>
             </div>
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-4">
-            <Link to={`/booking/${_id}`} style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                style={{
-                  backgroundColor: "#f97150",
-                  padding: "8px 18px",
-                  width: "140px",
-                }}
-              >
-                Book Now
+          <div className="d-flex justify-content-between align-items-center mt-4">
+            <Button
+              onClick={() => handleDelete(_id)}
+              endIcon={<DeleteIcon />}
+              variant="contained"
+              color="error"
+            >
+              DELETE
+            </Button>
+
+            <Link to={`/updateDetails/${_id}`} style={{ textDecoration: "none" }}>
+              <Button endIcon={<UpdateIcon />} variant="contained" color="info">
+                UPDATE
               </Button>
             </Link>
           </div>
@@ -90,4 +87,4 @@ const Tour = ({ tour }) => {
   );
 };
 
-export default Tour;
+export default SingleUpdateTour;

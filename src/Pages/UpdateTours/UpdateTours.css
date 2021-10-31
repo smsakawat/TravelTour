@@ -1,0 +1,9 @@
+.update-img {
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../../images/banner2.png);
+  background-position: center;
+  height: 320px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

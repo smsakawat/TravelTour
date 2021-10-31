@@ -26,7 +26,7 @@ const MyTours = () => {
         }
       });
   }, [user]);
-  // remove tours if user wants
+  // remove bookings if user wants
   const handleDelete = (id) => {
     const result = window.confirm("Are You Sure?");
     if (result) {
