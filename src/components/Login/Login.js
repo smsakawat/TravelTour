@@ -68,11 +68,14 @@ const Login = () => {
       });
   };
   return (
-    <div className="text-center my-5 py-5">
-      <h2 className="my-4 fw-bold">Please Login</h2>
+    <div
+      className="text-center mt-5 py-5"
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
+      <h2 className="my-4 fw-bold">Login To Your Account</h2>
       <p className=" mt-2 primary-color">Login with Email & Password</p>
       <p className="text-danger text-center"></p>
-      <div className="w-25 mx-auto">
+      <div className="w-50 mx-auto">
         <Form onSubmit={handleSignInWithEmail}>
           <Row>
             <Col className="text-start">
@@ -130,14 +133,14 @@ const Login = () => {
               color: "#fff",
             }}
           >
-            Login
+            <span className="fw-bold">LOGIN</span>
           </button>
         </Form>
       </div>
       <p className="mt-2">
         <span className="text-secondary">Not have an account?</span>
         <NavLink className="text-decoration-none" to="/signup">
-          ? Please Sign up!
+          Please Sign up!
         </NavLink>
       </p>
 
@@ -148,7 +151,7 @@ const Login = () => {
           variant="outlined"
           style={{
             border: "2px solid lightgray",
-            backgroundColor: "transparent",
+            backgroundColor: "#fff",
             padding: "6px 16px",
             borderRadius: 9,
             color: "gray",

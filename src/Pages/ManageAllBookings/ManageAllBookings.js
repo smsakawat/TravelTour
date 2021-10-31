@@ -55,9 +55,7 @@ const ManageAllBookings = () => {
           <div className="w-75 mx-auto">
             {noBookings ? (
               <div className="my-5">
-                <h3 className="fw-bold">
-                  Sorry You Don't Have Any Booked Tours
-                </h3>
+                <h3 className="fw-bold">No Bookings Available </h3>
               </div>
             ) : (
               <div className="my-4">

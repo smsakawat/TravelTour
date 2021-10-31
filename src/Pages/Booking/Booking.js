@@ -87,12 +87,12 @@ const Booking = () => {
   return (
     <div>
       <div
-        className="tour-banner"
+        className="tour-banner w-100"
         style={{ backgroundImage: `url(${img})` }}
       ></div>
       <div className="container my-5 py-5">
-        <div className="row g-5">
-          <div className="col-md-7">
+        <div className="row gy-4 g-md-5">
+          <div className="col-12 col-md-7">
             <div className="my-4">
               <h4 className="text-start" style={{ fontWeight: "800" }}>
                 {title}
@@ -165,7 +165,7 @@ const Booking = () => {
               <p className="lead text-secondary text-start">{description}</p>
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-12 col-md-5">
             <div className=" p-4 border border">
               <p className="fw-bold text-start">Price</p>
               <div className="text-start">

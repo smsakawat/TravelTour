@@ -3,8 +3,9 @@ import LoginIcon from "@mui/icons-material/Login";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { Button } from "@mui/material";
 import React, { useState } from "react";
-import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logott.png";
 import "./Header.css";
@@ -63,20 +64,8 @@ const Header = () => {
                 HOME
               </Nav.Link>
               <Nav.Link
-                as={Link}
-                to="/home"
-                className="navitem"
-                style={{
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  paddingRight: 20,
-                }}
-              >
-                ABOUT US
-              </Nav.Link>
-              <Nav.Link
-                as={Link}
-                to="all-tours"
+                as={HashLink}
+                to="/home#tours"
                 style={{
                   fontWeight: "700",
                   fontSize: "15px",
@@ -87,19 +76,44 @@ const Header = () => {
                 TOURS
               </Nav.Link>
               {user?.email && (
-                <Nav.Link
-                  as={Link}
-                  to="/mytours"
-                  style={{
-                    fontWeight: "700",
-                    fontSize: "15px",
-                    paddingRight: 20,
-                  }}
-                >
-                  MY TOURS
-                </Nav.Link>
+                <>
+                  <Nav.Link
+                    as={Link}
+                    to="/mytours"
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "15px",
+                      paddingRight: 20,
+                    }}
+                  >
+                    MY TOURS
+                  </Nav.Link>
+                  <Nav.Link
+                    as={Link}
+                    to="/allBooking"
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "15px",
+                      paddingRight: 20,
+                    }}
+                  >
+                    MANAGE BOOKINGS
+                  </Nav.Link>
+                  <Nav.Link
+                    className="me-md-3"
+                    as={Link}
+                    to="/addtour"
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "15px",
+                      paddingRight: 20,
+                    }}
+                  >
+                    ADD TOUR
+                  </Nav.Link>
+                </>
               )}
-              {user?.email && (
+              {/* {user?.email && (
                 <NavDropdown
                   title="ADMIN"
                   id="admin-dashboard"
@@ -116,10 +130,10 @@ const Header = () => {
                     Add New Tour
                   </NavDropdown.Item>
                 </NavDropdown>
-              )}
+              )} */}
               {user.email ? (
                 <>
-                  <Navbar.Text>
+                  <Navbar.Text className="ms-md-5">
                     <span className="me-3">{user?.displayName}</span>
                   </Navbar.Text>
                   <Button

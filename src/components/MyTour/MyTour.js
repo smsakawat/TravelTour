@@ -10,14 +10,14 @@ const MyTour = ({ myTour, handleDelete }) => {
 
   return (
     <div className="row g-0   my-4">
-      <div className="col-3 d-flex justify-content-center align-items-center">
+      <div className="col-12 col-md-3 d-flex justify-content-center align-items-center">
         <img
           src={img}
           className="img-fluid w-100 h-100 ps-0"
           alt="mytour-img"
         />
       </div>
-      <div className="mytour-body col-9  border border  p-3 d-flex justify-content-start align-items-center">
+      <div className="mytour-body col-12 col-md-9  border border  p-3 d-flex justify-content-start align-items-center">
         <div className="border-end border-3 text-start me-2">
           <div className="title">
             <h5 className="fw-bolder my-2">{title}</h5>

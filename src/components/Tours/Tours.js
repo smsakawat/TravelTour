@@ -30,7 +30,7 @@ const Tours = () => {
             </span>
           </p>
         </div>
-        <div className="py-4">
+        <div className="py-4" id="tours">
           {showSpinner ? (
             <Spinner animation="border" variant="secondary" className="my-5" />
           ) : (

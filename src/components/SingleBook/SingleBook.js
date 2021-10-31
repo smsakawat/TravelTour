@@ -43,11 +43,11 @@ const SingleBook = ({ handleDelete, singleBook }) => {
 
   return (
     <div className="row g-0 my-4">
-      <div className="col-3 d-flex justify-content-center align-items-centeter">
+      <div className="col-12 col-md-3 d-flex flex-column flex-md-row justify-content-center align-items-centeter">
         <img src={img} className="img-fluid " alt="singleBook-img" />
       </div>
-      <div className="singleBook-body border border col-9  d-flex justify-content-start align-items-center">
-        <div className="border-end border-3 my-3 text-start p-3 d-flex justify-content-between align-items-center">
+      <div className="singleBook-body border border col-12 col-md-9  d-flex flex-column flex-md-row justify-content-start align-items-center">
+        <div className=" border-end border-0 border-md-3 my-3 text-start p-3 d-flex justify-content-between align-items-center">
           <div>
             <div className="title">
               <div>
@@ -79,7 +79,10 @@ const SingleBook = ({ handleDelete, singleBook }) => {
               <span className="text-secondary fw-bold"> {date}</span>
             </div>
           </div>
-          <div className="my-2 text-start" style={{ paddingBottom: "100px" }}>
+          <div
+            className="my-2 text-start px-1 px-md-4 mb-5 mb-md-0"
+            style={{ paddingBottom: "110px" }}
+          >
             <FormControl>
               <FormLabel style={{ color: "gray", fontWeight: "bold" }}>
                 Status
@@ -102,7 +105,7 @@ const SingleBook = ({ handleDelete, singleBook }) => {
             </FormControl>
           </div>
         </div>
-        <div className="text-start ms-3">
+        <div className="text-start ms-3 px-2 px-md-4 pb-3 pb-md-0">
           {" "}
           <div>
             <div>

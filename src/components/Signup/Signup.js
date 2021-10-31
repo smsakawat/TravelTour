@@ -5,16 +5,21 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
 import { FcGoogle } from "react-icons/fc";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
   const history = useHistory();
+  const location = useLocation();
+
   const auth = getAuth();
   const [values, setValues] = useState({ name: "", email: "", password: "" });
-  // redirecting user after login
+  const [error, setError] = useState("");
+
+  // redire-uri
+  const redirect_uri = location.state?.from || "/home";
 
   // show  success message
   const notify = () => {
@@ -35,13 +40,14 @@ const SignUp = () => {
     signinWithGoogle()
       .then((result) => {
         notify();
-        history.push("/home");
+        history.push(redirect_uri);
       })
       .catch((err) => {});
   };
 
   // sign up on from submit
   const hanldeFormSubmit = (e) => {
+    setError("");
     e.preventDefault();
 
     if (values.name === "" || values.email === "" || values.password === "") {
@@ -53,19 +59,26 @@ const SignUp = () => {
             displayName: values.name,
           }).then(() => {
             notify();
-            history.push("/home");
+            history.push(redirect_uri);
           });
         })
-        .catch((error) => {});
+        .catch((error) => {
+          setError("Password should be at least 8 character");
+        });
     }
   };
 
   return (
-    <div className="text-center my-5 py-5">
-      <h2 className="my-4 fw-bold">Please Sign Up</h2>
-      <p className=" mt-2 primary-color lead">Sign Up with Email & Password</p>
-      <p className="text-danger text-center"></p>
-      <div className="w-25 mx-auto">
+    <div
+      className="text-center mt-5 py-5"
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
+      <h2 className="my-4 fw-bold">Sign Up</h2>
+      <p className=" mt-2 primary-color lead fw-bold">
+        Sign Up with Email & Password
+      </p>
+
+      <div className=" w-50 w-md-25 mx-auto">
         <Form onSubmit={hanldeFormSubmit}>
           <Row>
             <Col className="text-start">
@@ -130,6 +143,7 @@ const SignUp = () => {
                   placeholder="Enter your password"
                 />
               </InputGroup>
+              <p className="text-danger">{error}</p>
             </Col>
           </Row>
 
@@ -143,7 +157,7 @@ const SignUp = () => {
               color: "#fff",
             }}
           >
-            Sign UP
+            <span className="fw-bold">SIGN UP</span>
           </button>
         </Form>
       </div>
@@ -163,7 +177,7 @@ const SignUp = () => {
           variant="outlined"
           style={{
             border: "2px solid lightgray",
-            backgroundColor: "transparent",
+            backgroundColor: "#fff",
             padding: "6px 16px",
             borderRadius: 9,
             color: "gray",

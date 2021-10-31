@@ -36,11 +36,13 @@ const Destinations = () => {
         ) : (
           <div className="row g-5">
             {destinations.map((destination, index) => (
-              <div key={index} className="col-md-4">
+              <div key={index} className=" col-md-4">
                 {" "}
                 <div
                   className="card-div"
-                  style={{ backgroundImage: `url(${destination?.img})` }}
+                  style={{
+                    backgroundImage: `url(${destination?.img})`,
+                  }}
                 >
                   <div className="card-content">
                     <h3 className="card-heading fw-bold text-center">

@@ -23,14 +23,17 @@ const AddTour = () => {
       });
   };
   return (
-    <div className="mt-5 pt-4">
-      <div className="contaiener my-5 ">
+    <div className="mt-4 pb-4" style={{ backgroundColor: "#f5f5f5" }}>
+      <div className="container mt-5 py-4 ">
         <h4 className="fw-bolder primary-color text-center my-5">
           Add New Tour Here:
         </h4>
-        <div className="newtour-form">
-          <div className="w-50 mx-auto">
-            <div className=" p-4 border border">
+        <div className="newtour-form ">
+          <div className="w-75 w-md-50 mx-auto">
+            <div
+              className=" p-5 border border "
+              style={{ backgroundColor: "#fff", borderRadius: "6px" }}
+            >
               <div>
                 <form
                   className="row gx-4"

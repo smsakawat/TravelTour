@@ -9,7 +9,7 @@ const Discount = () => {
     <div className="container-fluid my-5 py-4">
       <div className="container">
         <div className="row g-0">
-          <div className="col-6 discount-text">
+          <div className="col-md-6 discount-text">
             <div className="discount-details d-flex justify-content-center align-items-center ">
               <div className="mt-4">
                 <Typography
@@ -42,7 +42,7 @@ const Discount = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="col-12 col-md-6">
             <img src={couple} className="img-fluid" alt="couple-img" />
           </div>
         </div>
