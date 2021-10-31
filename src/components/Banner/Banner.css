@@ -1,7 +1,7 @@
 .banner-container {
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://image.freepik.com/free-photo/water-famous-architecture-finance-shanghai-tower_1417-1120.jpg");
+    url("../../images/banner3.png");
   background-position: center top;
   height: 690px;
   background-repeat: no-repeat;

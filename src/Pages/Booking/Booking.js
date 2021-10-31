@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Rating from "react-rating";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../hooks/useAuth";
 import "./Booking.css";
 
@@ -18,6 +20,7 @@ const Booking = () => {
   const { id } = useParams();
   const [tour, setTour] = useState({});
   const { user } = useAuth();
+  // shoe notification
 
   //   hook form
   const {
@@ -44,11 +47,26 @@ const Booking = () => {
   } = tour || {};
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/booking/${id}`).then((res) => {
-      setTour(res.data);
-    });
+    axios
+      .get(`https://calm-reef-90911.herokuapp.com/booking/${id}`)
+      .then((res) => {
+        setTour(res.data);
+      });
   }, []);
-
+  // initialize toastify
+  toast.configure();
+  // show message on logout
+  const notify = () => {
+    toast.info("Tour Booked Successfully!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
   //   handle form on submit
   const onSubmit = (data) => {
     data.id = tour._id;
@@ -56,12 +74,14 @@ const Booking = () => {
     data.userEmail = user?.email;
     data.tourDetails = tour;
     data.status = "pending";
-    axios.post("http://localhost:5000/booking/addBooking", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("booking confirmed");
-        reset();
-      }
-    });
+    axios
+      .post("https://calm-reef-90911.herokuapp.com/booking/addBooking", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          notify();
+          reset();
+        }
+      });
   };
 
   return (

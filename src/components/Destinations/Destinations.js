@@ -10,7 +10,7 @@ const Destinations = () => {
 
   useEffect(() => {
     setShowSpinner(true);
-    fetch("http://localhost:5000/destinations")
+    fetch("https://calm-reef-90911.herokuapp.com/destinations")
       .then((res) => res.json())
       .then((data) => {
         setShowSpinner(false);

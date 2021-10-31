@@ -81,10 +81,10 @@ const Header = () => {
                   fontWeight: "700",
                   fontSize: "15px",
                   paddingRight: 20,
-                  marginRight: !user?.email ? "250px" : "",
+                  // marginRight: !user?.email ? "250px" : "",
                 }}
               >
-                BLOGS
+                TOURS
               </Nav.Link>
               {user?.email && (
                 <Nav.Link
@@ -107,7 +107,6 @@ const Header = () => {
                     fontWeight: "600",
                     fontSize: "15px",
                     paddingRight: 20,
-                    marginRight: "140px",
                   }}
                 >
                   <NavDropdown.Item onClick={() => history.push("/allBooking")}>

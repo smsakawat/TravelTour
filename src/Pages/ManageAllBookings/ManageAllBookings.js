@@ -10,34 +10,38 @@ const ManageAllBookings = () => {
 
   useEffect(() => {
     setSpinner(true);
-    axios.get("http://localhost:5000/allBookings").then((res) => {
-      setSpinner(false);
-      if (res.data.length) {
-        setNoBookings(false);
-        setAllBookings(res.data);
-      } else {
-        setNoBookings(true);
-      }
-    });
+    axios
+      .get("https://calm-reef-90911.herokuapp.com/allBookings")
+      .then((res) => {
+        setSpinner(false);
+        if (res.data.length) {
+          setNoBookings(false);
+          setAllBookings(res.data);
+        } else {
+          setNoBookings(true);
+        }
+      });
   }, []);
   //   remove bookings if admin wants
   // remove tours if user wants
   const handleDelete = (id) => {
     const result = window.confirm("Are You Sure?Yes or NO");
     if (result) {
-      axios.delete(`http://localhost:5000/deleteBooking/${id}`).then((res) => {
-        if (res.data.deletedCount) {
-          const remainingBookings = allBookings.filter(
-            (singleBook) => singleBook.id !== id
-          );
-          setAllBookings(remainingBookings);
-          if (remainingBookings.length) {
-            setNoBookings(false);
-          } else {
-            setNoBookings(true);
+      axios
+        .delete(`https://calm-reef-90911.herokuapp.com/deleteBooking/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount) {
+            const remainingBookings = allBookings.filter(
+              (singleBook) => singleBook.id !== id
+            );
+            setAllBookings(remainingBookings);
+            if (remainingBookings.length) {
+              setNoBookings(false);
+            } else {
+              setNoBookings(true);
+            }
           }
-        }
-      });
+        });
     }
   };
   return (

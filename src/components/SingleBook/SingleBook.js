@@ -32,7 +32,10 @@ const SingleBook = ({ handleDelete, singleBook }) => {
 
   useEffect(() => {
     axios
-      .put("http://localhost:5000/booking/status", { bookingStatus, id })
+      .put("https://calm-reef-90911.herokuapp.com/booking/status", {
+        bookingStatus,
+        id,
+      })
       .then((res) => {
         console.log(res.data);
       });

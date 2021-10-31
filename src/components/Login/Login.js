@@ -1,30 +1,70 @@
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Button } from "@mui/material";
+import React, { useState } from "react";
 import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import { FcGoogle } from "react-icons/fc";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import useAuth from "../../hooks/useAuth";
-import google from "../../images/google.png";
 
 const Login = () => {
-  const { signInWithGoogle, setIsLoading } = useAuth();
+  const [values, setValues] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const { isLoading, setIsLoading, signInWithEmail, signinWithGoogle } =
+    useAuth();
+
   const location = useLocation();
   const history = useHistory();
-  const redirect_uri = location.state?.from || "/home";
+  // redirect user
+  const redirect_ui = location.state?.from || "/";
 
-  //   sign-in with google
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
+  // show notification
+  const notify = () => {
+    toast.success("Login Successfull!", {
+      // we can also change the notify by inline styles here
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
+  //    signin with email
+  const handleSignInWithEmail = (e) => {
+    e.preventDefault();
+
+    if (values.email === "" || values.password === "") {
+      setError("Input filelds cannot be empty");
+      return;
+    }
+    signInWithEmail(values.email, values.password)
       .then((result) => {
-        if (result.user) {
-          console.log(result.user);
-          alert("login done");
-          history.push(redirect_uri);
-          setIsLoading(false);
-        }
+        notify();
+        setError("");
+        history.push(redirect_ui);
+
+        // console.log(result.user);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch((error) => {
+        setError("Invalid Email or Password");
+      });
+  };
+  //   sign in with google
+  const handleGoogleSignIn = () => {
+    setIsLoading(true);
+    signinWithGoogle()
+      .then((result) => {
+        notify();
+        history.push(redirect_ui);
+      })
+      .catch((error) => {})
+      .finally(() => {
+        setIsLoading(false);
       });
   };
   return (
@@ -33,7 +73,7 @@ const Login = () => {
       <p className=" mt-2 primary-color">Login with Email & Password</p>
       <p className="text-danger text-center"></p>
       <div className="w-25 mx-auto">
-        <Form>
+        <Form onSubmit={handleSignInWithEmail}>
           <Row>
             <Col className="text-start">
               <Form.Label htmlFor="email" visuallyHidden>
@@ -44,6 +84,9 @@ const Login = () => {
                   <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                 </InputGroup.Text>
                 <FormControl
+                  onBlur={(e) => {
+                    setValues({ ...values, email: e.target.value });
+                  }}
                   type="email"
                   autoComplete="current-email"
                   id="email"
@@ -62,6 +105,9 @@ const Login = () => {
                   <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                 </InputGroup.Text>
                 <FormControl
+                  onBlur={(e) => {
+                    setValues({ ...values, password: e.target.value });
+                  }}
                   type="password"
                   autoComplete="current-password"
                   id="password"
@@ -69,6 +115,7 @@ const Login = () => {
                 />
               </InputGroup>
             </Col>
+            <p className="text-danger my-1">{error}</p>
           </Row>
 
           <button
@@ -93,16 +140,25 @@ const Login = () => {
           ? Please Sign up!
         </NavLink>
       </p>
-      <p className="mt-1">Or</p>
-      <p className="secondary-color"> Login with Google</p>
+
+      <p className="secondary-color"> or Login with Google</p>
       <div className="d-flex justify-content-center align-items-center">
-        <span
-          className="border border-3 p-3 rounded-3"
-          style={{ cursor: "pointer" }}
+        <Button
           onClick={handleGoogleSignIn}
+          variant="outlined"
+          style={{
+            border: "2px solid lightgray",
+            backgroundColor: "transparent",
+            padding: "6px 16px",
+            borderRadius: 9,
+            color: "gray",
+          }}
         >
-          <img src={google} alt="" style={{ width: "1.5em" }} />
-        </span>
+          <span className="me-2">
+            <FcGoogle style={{ fontSize: "1.6em" }} />
+          </span>
+          Sign in with Google
+        </Button>
       </div>
     </div>
   );

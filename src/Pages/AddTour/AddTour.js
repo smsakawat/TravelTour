@@ -13,12 +13,14 @@ const AddTour = () => {
   //   setNewDate(date);
 
   const onSubmit = (data) => {
-    axios.post("http://localhost:5000/tours/newTour", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Tour Added Successfully");
-      }
-      reset();
-    });
+    axios
+      .post("https://calm-reef-90911.herokuapp.com/tours/newTour", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Tour Added Successfully");
+        }
+        reset();
+      });
   };
   return (
     <div className="mt-5 pt-4">

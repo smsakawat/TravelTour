@@ -11,7 +11,7 @@ const Tours = () => {
 
   useEffect(() => {
     setShowSpinner(true);
-    axios.get("http://localhost:5000/tours").then((res) => {
+    axios.get("https://calm-reef-90911.herokuapp.com/tours").then((res) => {
       setShowSpinner(false);
       setTours(res.data);
     });

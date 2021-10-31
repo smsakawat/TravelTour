@@ -1,18 +1,64 @@
+import { getAuth, updateProfile } from "@firebase/auth";
 import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import {
-  Button,
-  Col,
-  Form,
-  FormControl,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import { Button } from "@mui/material";
+import React, { useState } from "react";
+import { Col, Form, FormControl, InputGroup, Row } from "react-bootstrap";
+import { FcGoogle } from "react-icons/fc";
 import { NavLink, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useAuth from "../../hooks/useAuth";
 
 const SignUp = () => {
   const history = useHistory();
+  const auth = getAuth();
+  const [values, setValues] = useState({ name: "", email: "", password: "" });
+  // redirecting user after login
+
+  // show  success message
+  const notify = () => {
+    toast.success("Welcome To TravelTour!!", {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+  // destructuring from use auth
+  const { signinWithGoogle, signUpUsingEmailAndPass } = useAuth();
+  // sign up with google
+  const handleGoogleSignUP = () => {
+    signinWithGoogle()
+      .then((result) => {
+        notify();
+        history.push("/home");
+      })
+      .catch((err) => {});
+  };
+
+  // sign up on from submit
+  const hanldeFormSubmit = (e) => {
+    e.preventDefault();
+
+    if (values.name === "" || values.email === "" || values.password === "") {
+      return;
+    } else {
+      signUpUsingEmailAndPass(values.email, values.password, values.name)
+        .then((result) => {
+          updateProfile(auth.currentUser, {
+            displayName: values.name,
+          }).then(() => {
+            notify();
+            history.push("/home");
+          });
+        })
+        .catch((error) => {});
+    }
+  };
 
   return (
     <div className="text-center my-5 py-5">
@@ -20,7 +66,7 @@ const SignUp = () => {
       <p className=" mt-2 primary-color lead">Sign Up with Email & Password</p>
       <p className="text-danger text-center"></p>
       <div className="w-25 mx-auto">
-        <Form>
+        <Form onSubmit={hanldeFormSubmit}>
           <Row>
             <Col className="text-start">
               <Form.Label htmlFor="name" visuallyHidden>
@@ -31,6 +77,9 @@ const SignUp = () => {
                   <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
                 </InputGroup.Text>
                 <FormControl
+                  onBlur={(e) => {
+                    setValues({ ...values, name: e.target.value });
+                  }}
                   type="text"
                   autoComplete="current-text"
                   id="name"
@@ -50,6 +99,9 @@ const SignUp = () => {
                   <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
                 </InputGroup.Text>
                 <FormControl
+                  onBlur={(e) => {
+                    setValues({ ...values, email: e.target.value });
+                  }}
                   type="email"
                   autoComplete="current-email"
                   id="email"
@@ -69,6 +121,9 @@ const SignUp = () => {
                   <FontAwesomeIcon icon={faLock}></FontAwesomeIcon>
                 </InputGroup.Text>
                 <FormControl
+                  onBlur={(e) => {
+                    setValues({ ...values, password: e.target.value });
+                  }}
                   type="password"
                   autoComplete="current-password"
                   id="password"
@@ -77,35 +132,19 @@ const SignUp = () => {
               </InputGroup>
             </Col>
           </Row>
-          <Row>
-            <Col className="text-start">
-              <Form.Label htmlFor="photo" visuallyHidden>
-                Your photo URL
-              </Form.Label>
-              <InputGroup className="mb-2">
-                <InputGroup.Text>
-                  <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-                </InputGroup.Text>
-                <FormControl
-                  type="text"
-                  autoComplete="current-text"
-                  id="photo"
-                  placeholder="Enter your photoURL"
-                />
-              </InputGroup>
-            </Col>
-          </Row>
-          <Button
+
+          <button
             type="submit"
-            className="w-100 mt-3"
+            className="w-100 mt-3 btn"
             style={{
               backgroundColor: "#f97150",
               border: "none",
               outline: "none",
+              color: "#fff",
             }}
           >
             Sign UP
-          </Button>
+          </button>
         </Form>
       </div>
       <p className="mt-2">
@@ -118,6 +157,24 @@ const SignUp = () => {
           or sign-up with google
         </p>
       </p>
+      <div className="d-flex justify-content-center align-items-center">
+        <Button
+          onClick={handleGoogleSignUP}
+          variant="outlined"
+          style={{
+            border: "2px solid lightgray",
+            backgroundColor: "transparent",
+            padding: "6px 16px",
+            borderRadius: 9,
+            color: "gray",
+          }}
+        >
+          <span className="me-2">
+            <FcGoogle style={{ fontSize: "2em" }} />
+          </span>
+          Sign up with Google
+        </Button>
+      </div>
     </div>
   );
 };
