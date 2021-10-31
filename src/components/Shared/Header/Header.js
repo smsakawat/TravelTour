@@ -84,7 +84,7 @@ const Header = () => {
                   marginRight: !user?.email ? "250px" : "",
                 }}
               >
-                BLOGS
+                TOURS
               </Nav.Link>
               {user?.email && (
                 <Nav.Link
