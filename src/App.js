@@ -13,6 +13,7 @@ import Booking from "./Pages/Booking/Booking";
 import Home from "./Pages/Home/Home";
 import ManageAllBookings from "./Pages/ManageAllBookings/ManageAllBookings";
 import MyTour from "./Pages/MyTours/MyTours";
+import NotFound from "./Pages/NotFound/NotFound";
 import UpdateTourDetails from "./Pages/UpdateTourDetails/UpdateTourDetails";
 import UpdateTours from "./Pages/UpdateTours/UpdateTours";
 
@@ -26,7 +27,7 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/home">
+            <Route exact path="/home">
               <Home />
             </Route>
             <PrivateRoute path="/booking/:id">
@@ -44,14 +45,17 @@ function App() {
             <PrivateRoute path="/updatetours">
               <UpdateTours></UpdateTours>
             </PrivateRoute>
-            <PrivateRoute path='/updateDetails/:id'>
-              <UpdateTourDetails/>
+            <PrivateRoute path="/updateDetails/:id">
+              <UpdateTourDetails />
             </PrivateRoute>
             <Route exact path="/signup">
               <SignUp />
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route exact path="*">
+              <NotFound />
             </Route>
           </Switch>
           <Footer></Footer>
