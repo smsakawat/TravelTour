@@ -28,7 +28,7 @@ const MyTours = () => {
   }, [user]);
   // remove bookings if user wants
   const handleDelete = (id) => {
-    const result = window.confirm("Are You Sure?");
+    const result = window.confirm("Are You Sure To Delete This Booking?");
     if (result) {
       axios
         .delete(`https://calm-reef-90911.herokuapp.com/deleteBooking/${id}`)

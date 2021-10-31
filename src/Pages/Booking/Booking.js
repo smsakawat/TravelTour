@@ -202,28 +202,28 @@ const Booking = () => {
                   />
 
                   <input
-                    {...register("email", { required: true })}
+                    {...register("email")}
                     defaultValue={user?.email}
                     placeholder="Email Address"
                     className="p-2 my-2 w-100 form-control"
                   />
 
                   <input
-                    {...register("Phone", { required: true })}
+                    {...register("Phone")}
                     type="number"
                     placeholder="Phone"
                     className="p-2 my-2 w-100 form-control"
                   />
 
                   <input
-                    {...register("date", { required: true })}
+                    {...register("date")}
                     placeholder="Date"
                     type="date"
                     className="p-2 my-2 w-100 form-control"
                   />
 
                   <input
-                    {...register("Rooms", { required: true })}
+                    {...register("Rooms")}
                     type="number"
                     placeholder="Rooms"
                     className="p-2 my-2 w-100 form-control"
@@ -237,7 +237,7 @@ const Booking = () => {
                   />
 
                   {errors.exampleRequired && (
-                    <span>This field is required</span>
+                    <span className="text-danger">This field is required</span>
                   )}
 
                   <input
