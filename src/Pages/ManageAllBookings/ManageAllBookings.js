@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
+
 import SingleBook from "../../components/SingleBook/SingleBook";
 
 const ManageAllBookings = () => {

@@ -2,10 +2,10 @@ import "aos/dist/aos.css"; // You can also use <link> for styles
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Login from "./components/Login/Login";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Footer from "./components/Shared/Footer/Footer";
-import Header from "./components/Shared/Header/Header";
+
 import SignUp from "./components/Signup/Signup";
 import AuthProvider from "./Context/AuthProvider";
 import AddTour from "./Pages/AddTour/AddTour";
@@ -22,7 +22,6 @@ function App() {
     <div className="App">
       <AuthProvider>
         <Router>
-          <Header></Header>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -30,19 +29,22 @@ function App() {
             <Route exact path="/home">
               <Home />
             </Route>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
             <PrivateRoute path="/booking/:id">
               <Booking />
             </PrivateRoute>
-            <PrivateRoute exact path="/mytours">
+            <PrivateRoute exact path="/myTours">
               <MyTour />
             </PrivateRoute>
-            <PrivateRoute path="/allBooking">
+            <PrivateRoute path="/manageBookings">
               <ManageAllBookings />
             </PrivateRoute>
-            <PrivateRoute exact path="/addtour">
+            <PrivateRoute exact path="/addTour">
               <AddTour />
             </PrivateRoute>
-            <PrivateRoute path="/updatetours">
+            <PrivateRoute path="/updateTours">
               <UpdateTours></UpdateTours>
             </PrivateRoute>
             <PrivateRoute path="/updateDetails/:id">
@@ -58,7 +60,6 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
-          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>

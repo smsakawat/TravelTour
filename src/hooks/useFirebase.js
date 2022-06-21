@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -20,8 +21,19 @@ const useFirebase = () => {
   // autentication states
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
+
+  // cheking admin locally
+  const checkAdmin = (user) => {
+    console.log(user.email);
+    if (user.email === "admin@gmail.com") {
+      setAdmin(true);
+    } else {
+      setAdmin(false);
+    }
+  };
 
   // sign in with google
   const signinWithGoogle = () => {
@@ -36,19 +48,34 @@ const useFirebase = () => {
   const signInWithEmail = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-
+  // save user details for after register
+  const saveUser = (email, displayName) => {
+    const user = { email: email, displayName: displayName };
+    console.log(user);
+    axios
+      .post("http://localhost:3000/users", user)
+      .then((res) => console.log(res.data))
+      .catch((err) => alert("error in db" + err.response));
+  };
   // setting up an observer
   useEffect(() => {
     setIsLoading(true);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        checkAdmin(user);
       } else {
         setUser({});
       }
       setIsLoading(false);
     });
   }, []);
+  // cheking if the user is admin or not
+  useEffect(() => {
+    axios
+      .get(`https://localhost:3000/users/${user.email}`)
+      .then((res) => setAdmin(res.data.admin));
+  }, [user.email]);
 
   // show message on logout
   const notify = () => {
@@ -85,6 +112,9 @@ const useFirebase = () => {
     logOut,
     isLoading,
     setIsLoading,
+    admin,
+    saveUser,
+    setAdmin,
   };
 };
 export default useFirebase;

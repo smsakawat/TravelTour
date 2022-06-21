@@ -13,6 +13,8 @@ import Rating from "react-rating";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../../components/Shared/Footer/Footer";
+import Header from "../../components/Shared/Header/Header";
 import useAuth from "../../hooks/useAuth";
 import "./Booking.css";
 
@@ -86,6 +88,7 @@ const Booking = () => {
 
   return (
     <div>
+      <Header></Header>
       <div
         className="tour-banner w-100"
         style={{ backgroundImage: `url(${img})` }}
@@ -259,6 +262,7 @@ const Booking = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

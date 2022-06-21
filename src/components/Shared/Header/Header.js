@@ -2,7 +2,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutTwoToneIcon from "@mui/icons-material/LogoutTwoTone";
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
@@ -81,49 +81,14 @@ const Header = () => {
                 <>
                   <Nav.Link
                     as={Link}
-                    to="/mytours"
+                    to="/dashboard"
                     style={{
                       fontWeight: "700",
                       fontSize: "15px",
                       paddingRight: 15,
                     }}
                   >
-                    MY TOURS
-                  </Nav.Link>
-                  <Nav.Link
-                    as={Link}
-                    to="/allBooking"
-                    style={{
-                      fontWeight: "700",
-                      fontSize: "15px",
-                      paddingRight: 15,
-                    }}
-                  >
-                    MANAGE BOOKINGS
-                  </Nav.Link>
-                  <Nav.Link
-                    className="me-md-3"
-                    as={Link}
-                    to="/addtour"
-                    style={{
-                      fontWeight: "700",
-                      fontSize: "15px",
-                      paddingRight: 15,
-                    }}
-                  >
-                    ADD TOUR
-                  </Nav.Link>
-                  <Nav.Link
-                    className="me-md-3"
-                    as={Link}
-                    to="/updatetours"
-                    style={{
-                      fontWeight: "700",
-                      fontSize: "15px",
-                      paddingRight: 15,
-                    }}
-                  >
-                    UPDATE
+                    DASHBOARD
                   </Nav.Link>
                 </>
               )}

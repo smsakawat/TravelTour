@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -54,9 +54,9 @@ const UpdateTours = () => {
     }
   };
   return (
-    <div className="mt-5 py-3">
+    <div className="pb-3">
       <div className="update-img d-flex justify-content-center align-items-center">
-        <h3 className="fw-bolder text-light">Update Your Tours</h3>
+        <h3 className="fw-bolder text-light">Update or Delete Tours</h3>
       </div>
       <div className="container py-4">
         <div className="py-5" id="tours">
