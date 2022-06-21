@@ -12,7 +12,7 @@ import "./Header.css";
 
 const Header = () => {
   const history = useHistory();
-  const { user, logOut } = useAuth();
+  const { user, logOut, admin } = useAuth();
 
   const [scrollNavbar, setScrollNavbar] = useState(false);
 
@@ -77,7 +77,7 @@ const Header = () => {
               >
                 TOURS
               </Nav.Link>
-              {user?.email && (
+              {user?.email && admin && (
                 <>
                   <Nav.Link
                     as={Link}
@@ -89,6 +89,21 @@ const Header = () => {
                     }}
                   >
                     DASHBOARD
+                  </Nav.Link>
+                </>
+              )}
+              {user?.email && !admin && (
+                <>
+                  <Nav.Link
+                    as={Link}
+                    to="/myTours"
+                    style={{
+                      fontWeight: "700",
+                      fontSize: "15px",
+                      paddingRight: 12,
+                    }}
+                  >
+                    MY TOURS
                   </Nav.Link>
                 </>
               )}

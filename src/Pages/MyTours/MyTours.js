@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Spinner } from "react-bootstrap";
 import MyTour from "../../components/MyTour/MyTour";
+import Footer from "../../components/Shared/Footer/Footer";
+import Header from "../../components/Shared/Header/Header";
 import useAuth from "../../hooks/useAuth";
 
 const MyTours = () => {
@@ -47,6 +49,7 @@ const MyTours = () => {
   };
   return (
     <div>
+      <Header></Header>
       <div className="container my-5 py-5">
         {spinner ? (
           <div className="my-5 py-5 d-flex justify-content-center align-items-center">
@@ -74,6 +77,7 @@ const MyTours = () => {
           </div>
         )}
       </div>
+      <Footer></Footer>
     </div>
   );
 };

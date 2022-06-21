@@ -2,7 +2,6 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import FestivalIcon from "@mui/icons-material/Festival";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
-import PaymentIcon from "@mui/icons-material/Payment";
 import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -28,7 +27,6 @@ import useAuth from "../../hooks/useAuth";
 
 import AddTour from "../../Pages/AddTour/AddTour";
 import ManageAllBookings from "../../Pages/ManageAllBookings/ManageAllBookings";
-import MyTours from "../../Pages/MyTours/MyTours";
 import UpdateTourDetails from "../../Pages/UpdateTourDetails/UpdateTourDetails";
 import UpdateTours from "../../Pages/UpdateTours/UpdateTours";
 
@@ -72,7 +70,7 @@ function Dashboard(props) {
         </Toolbar>
         <Divider />
         {/* user dashboard starts */}
-        {user.email && !admin && (
+        {/* {user.email && !admin && (
           <List>
             <ListItem button onClick={() => history.push("/")}>
               <ListItemIcon>
@@ -91,7 +89,7 @@ function Dashboard(props) {
               </Link>
             </ListItem>
           </List>
-        )}
+        )} */}
         {/* admin dashboard starts */}
         {user.email && admin && (
           <>
@@ -252,12 +250,12 @@ function Dashboard(props) {
               {/* <Route exact path="/dashboard">
                 <MyTours />
               </Route> */}
-              <Route exact path={path}>
+              {/* <Route exact path={path}>
                 <MyTours />
               </Route>
               <Route path={`${path}/myTours`}>
                 <MyTours />
-              </Route>
+              </Route> */}
             </>
           )}
           {user.email && admin && (
